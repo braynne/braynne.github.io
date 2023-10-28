@@ -9,17 +9,37 @@ function mostrarMensajes() {
     listaMensajes.innerHTML = "";
 
     // Itera sobre la lista de mensajes y crea elementos <li> para mostrarlos
-    mensajes.forEach(mensajeObj => {
+    mensajes.forEach((mensajeObj, index) => {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
             <strong>De:</strong> ${mensajeObj.correo}<br>
             <strong>Asunto:</strong> ${mensajeObj.asunto}<br>
             <strong>Mensaje:</strong> ${mensajeObj.mensaje}<br>
-            <input type="button" class="btn btn-primary btn-sm" value="Responder"></input>
+            <form id="form-respuesta-${index}" action="https://formsubmit.co/${mensajeObj.correo}" method="POST">
+                <input type="text" class="form-control" placeholder="Respuesta" name="Respuesta a '${mensajeObj.asunto}'"></input>
+                <input type="submit" class="btn btn-primary btn-sm" value="Responder"></input>
+            </form>
         `;
+
         listaMensajes.appendChild(listItem);
     });
 }
 
 // Llama a esta función para mostrar los mensajes en la lista en la carga inicial de la página
 mostrarMensajes();
+
+function enviarRespuesta(index) {
+    // Obtiene el contenido de la respuesta
+    const respuesta = document.querySelector(`#form-respuesta-${index} input[type="text"]`).value;
+
+    // Obtiene el mensaje original al que se está respondiendo
+    const mensajeOriginal = JSON.parse(localStorage.getItem("mensajes"))[index];
+
+    // Envía la respuesta al correo del remitente del mensaje original
+    const correoDestino = mensajeOriginal.correo;
+    // Aquí debes implementar el código para enviar el mensaje por correo electrónico,
+    // lo cual dependerá de tu servidor de correo o servicio de correo electrónico que utilices.
+
+    // Luego, puedes borrar el contenido del campo de respuesta si es necesario
+    document.querySelector(`#form-respuesta-${index} input[type="text"]`).value = "";
+}
