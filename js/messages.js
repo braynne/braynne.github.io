@@ -15,7 +15,7 @@ function mostrarMensajes() {
             <strong>De:</strong> ${mensajeObj.correo}<br>
             <strong>Asunto:</strong> ${mensajeObj.asunto}<br>
             <strong>Mensaje:</strong> ${mensajeObj.mensaje}<br>
-            <button class="btn btn-primary btn-sm">Responder</button>
+            <input type="button" class="btn btn-primary btn-sm" value="Responder"></input>
         `;
         listaMensajes.appendChild(listItem);
     });
