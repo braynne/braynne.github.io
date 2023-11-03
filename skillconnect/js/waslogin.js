@@ -8,4 +8,10 @@ if (!storedUser) {
     sesion0.href = "../index.html";
     sesion0.textContent = "Cerrar Sesión";
     sesion0.classList.add("btn-secondary");
+    logout();
+}
+
+function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
 }
