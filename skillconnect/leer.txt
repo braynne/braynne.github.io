@@ -1,0 +1,10 @@
+El sitio web requiere un servidor (Ejemplo, Apache en Xampp) para:
+- Mostrar las targetas de trabajadores en la página principal después de iniciar sesión, si no está activado, la página principal se mostrará vacía.
+- Mostrar la tabla Json de los usuarios en la vista del administrador.
+ (Se debe a que para usar Fetch requiere estar ubicado en un servidor http)
+mover la carpeta a htdocs
+ir a localhost/skillconnect en navegador
+
+El sitio web requiere internet para poder añadir y eliminar usuarios vía Google Sheets
+
+El CSS y JS de bootstrap se descargó localmente.
