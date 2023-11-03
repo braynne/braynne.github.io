@@ -1,3 +1,4 @@
+
 let users = [];
 
 // Function to populate the DataTable
@@ -10,10 +11,10 @@ function populateDataTable() {
     const table = $("#userTable").DataTable({
         data: users,
         columns: [
-            { data: "username" },
-            { data: "password" },
-            { data: "role" },
-            { data: "occupation" },
+            {data: "username"},
+            {data: "password"},
+            {data: "role"},
+            {data: "occupation"},
             {
                 data: null,
                 render: function (data, type, row) {
@@ -34,7 +35,7 @@ function populateDataTable() {
 
 // Function to add a user
 function addUser(username, password, role, occupation) {
-    users.push({ username, password, role, occupation });
+    users.push({username, password, role, occupation});
     saveUsersToLocalStorage();
     populateDataTable();
 }
@@ -50,6 +51,7 @@ function deleteUser(index) {
         populateDataTable();
     }
 }
+
 
 // Function to save users to localStorage
 function saveUsersToLocalStorage() {
@@ -77,3 +79,60 @@ userForm.addEventListener("submit", function (e) {
     addUser(username, password, role, occupation);
     userForm.reset();
 });
+
+document.getElementById('export-button').addEventListener('click', function () {
+    window.jsPDF = window.jspdf.jsPDF;
+    const doc = new jsPDF();
+
+    // Get the table element
+    const table = document.getElementById('userTable');
+
+    // Convert the table to a data URL and add it to the PDF
+
+    doc.autoTable({html: table});
+
+    // Save the PDF or open it in a new tab
+    doc.save('table.pdf');
+});
+
+// Function to handle file selection and data import
+function importUsers() {
+    const fileInput = document.getElementById("fileInput");
+    const importButton = document.getElementById("importButton");
+
+    importButton.addEventListener("click", function () {
+        const file = fileInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                try {
+                    // Parse the JSON data from the file
+                    const importedData = JSON.parse(e.target.result);
+
+                    // Retrieve existing user data from localStorage or initialize an empty array
+                    const existingData = JSON.parse(localStorage.getItem("users")) || [];
+
+                    // Merge the imported data with the existing data
+                    const mergedData = existingData.concat(importedData);
+
+                    // Store the merged data in localStorage
+                    localStorage.setItem("users", JSON.stringify(mergedData));
+
+                    alert("User data imported successfully.");
+                } catch (error) {
+                    alert("Error parsing JSON data.");
+                    console.error(error);
+                }
+            };
+
+            reader.readAsText(file);
+            populateDataTable()
+        } else {
+            alert("Please select a JSON file.");
+        }
+    });
+}
+
+window.addEventListener("DOMContentLoaded", importUsers);
