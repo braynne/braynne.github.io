@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SkillConnect</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">        <link rel="stylesheet" href="../css/styles.css">
+        <script src="../js/check.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-expand-md bg-body-tertiary bg-dark border-bottom border-body"
+                 data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../img/logo.avif" alt="" width="24" height="24">
+                        SkillConnect
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../index.html">Página principal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contáctenos</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+
+                    <div class="d-flex" style="padding-left: 1%;">
+                        <input onclick="logout()" class="btn btn-secondary" type="button" value="Cerrar sesión">
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 py-3 bg-secondary">
+                    <div class="list-group">
+
+                    </div>
+                </div>
+
+                <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12 mt-3">
+                    <nav>
+                        <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Principal</button>
+                            <button class="nav-link" id="nav-favorites-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-favorites" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="false">Favoritos</button>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabcontent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                             tabindex="0">
+
+                            <div id="home-grids" class="mt-3">
+
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade show" id="nav-favorites" role="tabpanel" aria-labelledby="nav-home-tab"
+                             tabindex="0">
+
+                            <div id="home-grids2">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <script src="../js/cards-home.js"></script>
+                    <script src="../js/home.js"></script>
+                    <script src="../js/minscript.js"></script>
+                    <script src="../js/update.js"></script>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        
+
+        <footer class="footer">
+            <div class="container-fluid bg-dark text-center bg-body-tertiary text-light bottom-0 end-0 p-2" data-bs-theme="dark">
+                2023-2023 Desarrolladores de SkillConnect. Todos los derechos reservados
+            </div>
+        </footer>
+
+    </body>
+
+</html>
