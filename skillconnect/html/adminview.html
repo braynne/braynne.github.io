@@ -18,11 +18,12 @@
         <!-- Include DataTables JavaScript -->
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
-        <!--
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.bootstrap5.min.js"></script>-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+        <script src="https://unpkg.com/jspdf-autotable"></script>
 
     </head>
 
@@ -94,139 +95,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--
-                                        <div class="card">
-                                            <div class="card-header">
-                                                Agregar administradores
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 py-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-text" id="mailicon">
-                                                                Agregar como: 
-                                                            </div>
-                                                            <input type="text" id="usernameAgregar" name="usernameAgregar" class="form-control" placeholder="Nombre de usuario">
-                                                        </div>
-                    
-                    
-                                                    </div>
-                    
-                                                    <div class="col col-lg-6 col-md-12 col-sm-12 col-12 py-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-text" id="mailicon2">
-                                                                Correo: 
-                                                            </div>
-                                                            <input type="text" id="emailAgregar" name="emailAgregar" class="form-control" placeholder="Correo electrónico">
-                                                        </div>
-                    
-                                                    </div>
-                                                </div>
-                    
-                    
-                                            </div>
-                                            <div class="card-footer">
-                                                <input type="button" class="btn btn-success input-group-text btn-sm" value="Agregar" onclick="guardarUsuario('admin')">
-                                            </div>
-                                        </div>
-                    
-                                        <div class="card mt-3">
-                                            <div class="card-header">
-                                                Actualizar cuentas
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col col-xl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12 col-12 py-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-text">
-                                                                Nombre: 
-                                                            </div>
-                                                            <input type="text" id="usernameMod" name="usernameMod" class="form-control" placeholder="Nombre de usuario">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="col col-xl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12 col-12 py-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-text">
-                                                                Correo: 
-                                                            </div>
-                                                            <input type="text" id="emailMod" name="emailMod" class="form-control" placeholder="Correo electrónico">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="col col-xl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12 col-12 py-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-text">
-                                                                Rol: 
-                                                            </div>
-                                                            <input type="text" id="roleMod" name="roleMod" class="form-control" placeholder="Rol de usuario">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                    
-                    
-                                            </div>
-                                            <div class="card-footer">
-                                                <input type="button" class="btn btn-success input-group-text btn-sm" value="Actualizar" onclick="actualizarUsuario()">
-                                            </div>
-                                        </div>
-                    
-                                        <div class="card mt-3">
-                                            <div class="card-header">
-                                                Eliminar usuarios
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="input-group">
-                                                    <div class="input-group-text" id="mailicon">
-                                                        Eliminar a: 
-                                                    </div>
-                                                    <input type="text" name="borrarCuenta" id="borrarCuenta" class="form-control" placeholder="Usuario">
-                                                    <input type="button" class="btn btn-danger input-group-text" value="Eliminar" onclick="borrarUsuario()">
-                                                </div>
-                    
-                                            </div>
-                    
-                                    </div>-->
-                    <!--
-                    <div class="card mt-3">
-                        <div class="card-header">
-                            Usuarios
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <table id="data-table" class="table table-striped table-sm table-hover table-bordered">
-            
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    -->
-                    <!-- comment
-                    <div class="card mt-3">
-                        <div class="card-header">
-                            Usuarios en la nube (Google Sheets)
-                        </div>
-                        <div class="card-body">
-                            <div class="col">
-                                <h2>Listado de datos</h2>
-                                <div class="my-1">
-                                    <table class="table" id="tablaUsuarios">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nombre de usuario</th>
-                                                <th scope="col">Correo</th>
-                                                <th scope="col">Rol</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <div class="card">
                         <div class="card-header">
@@ -309,8 +177,15 @@
                                     <tbody id="user-list"></tbody>
                                 </table>
 
-
                             </div>
+                        </div>
+                        <div class="card-footer">
+                            <form id="importForm">
+                                <input type="file" accept=".json" id="fileInput"/>
+                                <button type="button" class="btn btn-sm btn-success" id="importButton">Import</button>
+                                <button class="btn btn-sm btn-primary" id="export-button">Exportar a PDF</button>
+
+                            </form>
                         </div>
                     </div>
 
@@ -325,11 +200,9 @@
 
         <script src="../js/tabla-admin.js"></script>
         <script src="../js/minscript.js"></script>
-        <script src="../js/script.js"></script>
         <script src="../js/crud.js"></script>
         <script src="../js/update.js"></script>
         <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
-
         <footer class="footer">
             <div class="container-fluid bg-dark text-center bg-body-tertiary text-light bottom-0 end-0 p-2" data-bs-theme="dark">
                 2023-2023 Desarrolladores de SkillConnect. Todos los derechos reservados
