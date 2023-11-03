@@ -8,7 +8,7 @@ if (!storedUser) {
     sesion0.href = "../index.html";
     sesion0.textContent = "Cerrar Sesión";
     sesion0.classList.add("btn-secondary");
-    logout();
+    sesion0.onclick = "logout()";
 }
 
 function logout() {
